@@ -1,38 +1,19 @@
-buildscript {
-	ext {
-		springBootVersion = '2.1.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+plugins {
+    id 'org.springframework.boot' version '2.1.2.RELEASE'
+    id 'java'
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'com.fentidev'
+group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = '1.8'
 
 repositories {
-	maven{
-		url("http://maven.aliyun.com/nexus/content/groups/public")
-	}
-	mavenCentral()
+    mavenCentral()
 }
-
 
 dependencies {
-	implementation('org.springframework.boot:spring-boot-starter')
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
-	compile group: 'org.springframework', name: 'spring-web', version: '5.1.3.RELEASE'
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '5.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
